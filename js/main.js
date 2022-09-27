@@ -1,37 +1,30 @@
 //variables
-let vacio="Tu respuesta quedó en blanco.\nPor favor, probá de nuevo.";
 let nombre;
 let tiempo;
 let animo;
 let dinero;
 let cantidad;
+let precioTiempo;
+let precioAnimo;
+let precioDinero;
 
+//funciones
+function vacio (){
+  alert("Tu respuesta quedó en blanco.\nPor favor, probá de nuevo.")
+}
 
 //programa
 
-/*
-for (let i = 1; i <= 3; i++) {
-  let pregunta = prompt("");
-  if (pregunta != "usted?") {
-    let respuesta = "Si";
-    alert(respuesta);
-  } else {
-    respuesta = "Asi es... espero haberlos iluminado... ";
-    alert(respuesta);
-  }
-}
-*/
 
-//for (let i = 1; i < 3; i++) {
 nombre=prompt('¡Te doy la bienvenida!\nSoy el diseñador de experiencias de /MODO:AVENTURA/.\n¿Cómo es tu nombre?')
 while (nombre == "") {
-  alert(vacio);
+  vacio();
   nombre=prompt('Por favor, ¿Me decís tu nombre?')
 }
 
 email=prompt("¡Hola"+" "+nombre+"!\n¿Nos pasás tu correo electrónico?")
 while (email == "") {
-  alert(vacio);
+  vacio();
   email=prompt('¿Nos pasás tu mail? Prometemos no enviar SPAM')
 }
 
@@ -43,21 +36,26 @@ if (tiempo != "") {
    switch (tiempo) {
         case "1":
             codTiempo=1
+            precioTiempo=30
             tiempo="un mes";
-          console.log("un mes");
+          console.log(tiempo);
         break;
         case "2":
             codTiempo=2
+            precioTiempo=15
             tiempo="quince días";
-          console.log("quince días");
+          console.log(tiempo);
           break;
         case "3":
             codTiempo=3
+            precioTiempo=3
             tiempo="un fin de semana";
-          console.log("un fin de semana");
+          console.log(tiempo);
           break;
         default:
           alert("Opción no válida");
+          tiempo="no dijiste cuánto tiempo";
+          codTiempo=-9;
           break;
       }
 }
@@ -73,20 +71,25 @@ if (animo != "") {
                 case "1":
                     codAnimo=1;
                     animo="de experiencias fuertes"
-                  console.log("una experiencia fuerte");
+                    precioAnimo=15000
+                  console.log(animo);
                 break;
                 case "2":
                     codAnimo=2;
+                    precioAnimo=7000
                     animo="de tiempo entretenido";
-                  console.log("un tiempo entretenido");
+                  console.log(animo);
                   break;
                 case "3":
                     codAnimo=3;
                     animo="de descanso tranquilo"
-                  console.log("un descanso tranquilo");
+                    precioAnimo=1000
+                  console.log(animo);
                   break;
                 default:
                   alert("Opción no válida");
+                  animo="no dijiste qué querés hacer";
+                  codAnimo=-9
                   break;
               }
 };
@@ -98,29 +101,38 @@ if (dinero != "") {
     switch (dinero) {
                 case "1":
                   codDinero=1
+                  precioDinero=2
                   dinero="sin reparar en gastos";
-                  console.log("sin reparar en gastos");
+                  console.log(dinero);
                 break;
                 case "2":
                   codDinero=2
+                  precioDinero=1
                   dinero="invirtiendo en lo mejor que tu dinero pueda comprar."
-                  console.log("invirtiendo en lo mejor que tu dinero pueda comprar.");
+                  console.log(dinero);
                   break;
                 case "3":
                   codDinero=3
-                  dinero="saliendo de vacaciones y no 'de gastos'."
-                  console.log("saliendo de vacaciones y no de gastos.");
+                  precioDinero=0.5
+                  dinero="saliendo de vacaciones y no 'de COMPRAS'"
+                  console.log(dinero);
                   break;
                 default:
                   alert("Opción no válida");
+                  dinero="No dijiste cuánto querés gastar";
+                  codDinero=-9
                   break;}
     }
   
   let perfilDeExperiencia=tiempo+" "+animo+" "+dinero;
   let codigoExperiencia=codTiempo+codAnimo+codDinero;
-  alert("Tu perfil de viaje es"+" "+perfilDeExperiencia". Y el precio es de $ "+codigoExperiencia+900);
-  
-  
-cantidad=prompt('¿Con cuantas personas querés compartir la experiencia?')
-cantidad=parseFloat(cantidad)
+  let precioExperiencia=precioAnimo*precioTiempo*precioDinero
 
+  if (codigoExperiencia>=3){
+  alert("Tu perfil de viaje es"+" "+perfilDeExperiencia+". Tiene un costo de $ "+precioExperiencia);
+  }
+  else {
+    alert("No tenemos suficiente información para asesorarte")
+  }
+  
+  
