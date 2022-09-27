@@ -1,5 +1,5 @@
 //variables
-let vacio="Tu respuesta quedó en blanco pero no hay problema.\nSigamos";
+let vacio="Tu respuesta quedó en blanco pero no hay problema.\nProbá de nuevo.";
 let nombre;
 let tiempo;
 let animo;
@@ -7,14 +7,32 @@ let dinero;
 
 
 //programa
-nombre=prompt('¡Te doy la bienvenida!\nSoy el diseñador de experiencias de /MODO:AVENTURA/.\n¿Cómo es tu nombre?')
-if (nombre != "") {
-    alert("¡Hola "+nombre+"! \n Te voy a hacer algunas sugerencias para tus vacaciones.")
-}
-else {
-    alert(vacio)
-    }
 
+/*
+for (let i = 1; i <= 3; i++) {
+  let pregunta = prompt("");
+  if (pregunta != "usted?") {
+    let respuesta = "Si";
+    alert(respuesta);
+  } else {
+    respuesta = "Asi es... espero haberlos iluminado... ";
+    alert(respuesta);
+  }
+}
+*/
+
+//for (let i = 1; i < 3; i++) {
+nombre=prompt('¡Te doy la bienvenida!\nSoy el diseñador de experiencias de /MODO:AVENTURA/.\n¿Cómo es tu nombre?')
+for (let i = 1; i < 3; i++) {
+while (nombre == "") {
+  alert(vacio)
+  nombre=prompt('Por favor, ¿Me decís tu nombre?')
+}
+}
+
+email=prompt("¡Hola"+" "+nombre+"!\n¿Nos pasás tu correo electrónico? Prometemos no mandar SPAM.")
+
+alert ('¡Genial! Gracias.\nTe voy a hacer algunas sugerencias para tus vacaciones.')
 
 tiempo = prompt('¿Cuánto tiempo querés dedicarte en vacaciones? \nMarcá: \n1: Un mes\n2: Quince días\n3: Un fin de semana.');
 if (tiempo != "") {
@@ -37,7 +55,7 @@ if (tiempo != "") {
           break;
       }
 
-        }
+}
 
 animo = prompt('Bien. Ahora contame: ¿Qué animo querés darle a tu experiencia? Marcá:\n1: Si tenés ganas de experiencias fuertes\n2: Si querés que el tiempo se te vaya volando sin sorpresas.\n3: Si preferís un descanso tranquilo.');
     
@@ -78,10 +96,6 @@ if (dinero != "") {
                   break;
                 default:
                   alert("Opción no válida");
-                  break;
-              }
-};
-
-function paquete(tiempo, animo, dinero) {
-    alert('caca','mierda','sorete');
-}
+                  break;}
+    }
+  
