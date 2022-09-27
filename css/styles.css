@@ -1,0 +1,113 @@
+/* Reseteo de CSS */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+}
+
+
+/*Fonts & Symbols*/
+h1 {
+    font-family: Verdana, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color:white
+}
+
+/*Título*/
+header {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header div {
+    background-color: grey;
+    padding: 3rem;
+    width: 100vw;
+}
+
+header nav ul {
+    background-color: rgb(67, 67, 136);
+    padding: 5px;
+    color: aquamarine;
+
+    width: 100vw;
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+header div nav ul li a {
+    font-family: Georgia, serif;
+    text-decoration: none;
+}
+
+main {
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
